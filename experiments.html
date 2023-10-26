@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex" />
+        <title>Experiments</title>
+
+        <style>
+            #myCanvas {
+                border-style: solid;
+            }
+        </style>
+    </head>
+
+    <body>
+        <canvas id="myCanvas" title="This is a nice Canvas">
+        </canvas>
+
+        <hr>
+
+        <svg>
+            <title>Made using SVG</title>
+            <rect
+                width="100"
+                height="50"
+                x="0"
+                y="0"
+                ry="2"/>
+        </svg>
+
+        <hr>
+
+        <pre>
+            O                O
+            █▓██▄            █
+            █▓▓░▀▄▀░░░░░░░░░░█
+            █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+            █                █
+        </pre>
+        <a href="https://fsymbols.com/text-art/twitter/#all_cats">ASCII Art Credit</a>
+
+        <hr>
+
+        <script>
+            var c = document.getElementById("myCanvas")
+            var ctx = c.getContext("2d")
+        </script>
+    </body>
+</html>

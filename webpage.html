@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ryan La's Portfolio</title>
+        <link href="experiments.html"/>
+
+        <meta name="description" content="This is the portfolio for Ryan La, a UCSD undergraduate looking for any software engineering (SWE) internships or jobs. It details his projects and experiences and is akin to a resume." />
+        <meta name="keywords" content="Math-CS major, Python, front-end web developer, UI/UX, UCSD, looking for internship"/>
+    </head>
+    <body>
+        <header style="inline-size: auto;">
+            <audio controls loop autoplay>
+                <source src="/images/bgm.ogg" type="audio/ogg">
+                <source src="/images/bgm.mp3" type="audio/mp3">
+                Your browser does not support the audio tag.
+            </audio>
+            <nav>
+                <a href="#profile">About Me</a>
+                <a href="#projects">My Projects</a>
+                <a href="#experience">My Experiences</a>
+                <a href="#contact">Contact Information</a>
+                <a href="#extra_credit">Extra Credit</a>
+            </nav>
+        </header>
+        <h1>Welcome</h1>
+
+        <div>
+        <label for="language">Choose your language:</label>
+            <input list="languages" name="language" id="language">
+            <datalist id="languages">
+                <option value="English">
+                <option value="Spanish">
+                <option value="French">
+                <option value="Chinese">
+                <option value="Japanese">
+                <option value="Hindi">
+                <option value="Arabic">
+            </datalist>
+            <input type="submit">
+        </div>
+
+        <main>
+            <h2 id="profile">About Me</h2>
+            <p>My name is <b>Ryan La</b>, a 3rd year <em>UCSD</em> Student in the Math-Computer Science Major.</p>
+
+            <div id="fun">
+            <label for="preference">Favorite food?</label>
+            <select name="preference" id="preference">
+                <optgroup label="fruit">
+                    <option value="apple">Apples</option>
+                    <option value="banana">Bananas</option>
+                    <option value="monstera">Monstera Deliciosa</option>
+                </optgroup>
+                <optgroup label="vegetable">
+                    <option value="lettuce">Lettuce</option>
+                    <option value="cabbage">Cabbage</option>
+                    <option value="kohlrabi">Kohlrabi</option>
+                </optgroup>
+                <optgroup label="meat">
+                    <option value="beef">Beef</option>
+                    <option value="chicken">Chicken</option>
+                    <option value="balut">Balut</option>
+                </optgroup>
+            </select>
+            <button type="button" id="food_button">Answer</button>
+            <template>
+                <img src="/images/cabbage.webp" alt="Image of a cabbage">
+            </template>
+            </div>
+
+            <h3 id="skills">My Skills</h2>
+            <table>
+                <caption>Software</caption>
+                <colgroup>
+                  <col span="5">
+                  <col>
+                </colgroup>
+                <tr>
+                  <th>Skill</th>
+                  <th>Can relearn</th>
+                  <th>Novice</th>
+                  <th>Average</th>
+                  <th>Good</th>
+                  <th>Proficient</th>
+                </tr>
+                <tr>
+                  <td>Visual Studio Code</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>&check;</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Godot</td>
+                  <td></td>
+                  <td></td>
+                  <td>&check;</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>League of Legends</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>&check;</td>
+                </tr>
+              </table>
+
+            <h3 id="goals">My Goals</h3>
+            <ol>
+                <li>Graduate College</li>
+                <li>Find an internship/job</li>
+                <li>Travel once financially stable</li>
+            </ol>
+
+            <h2 id="projects">My Projects</h2>
+            <ul>
+                <li><a href="experiments.html">Canvas Experiment</a></li>
+                <li><a href="experiments.html">SVG Experiment</a></li>
+            </ul>
+
+            <iframe src="experiments.html"></iframe>
+
+            <h2 id="experience">My Experiences</h2>
+
+                <nav>
+                    <a href="#yonder">Yonder Dynamics</a>
+                    <a href="#ihs">IHS Robotics</a>
+                </nav>
+
+                <section>
+                <h3 id="yonder">Yonder Dynamics</h3>
+                <p>
+                    During my second and third year of college, I joined a robotics team called <strong>Yonder Dynamics</strong>.
+                    They participate in the University Rover Challenge (URC) held by the Mars Society where teams build a pseudo-mars rover
+                    and program it such that it can perform tasks either manually through a controller or autonomously.
+                </p>
+
+                <details>
+                    <summary>URC</summary>
+                    <p>
+                        There are 4 main missions to complete during the URC. The rover is designed to analyze life or possibility of life given soil samples,
+                        search and gather specific items for astronauts when manually controlled from a remote base station, perform precise tasks using the arm,
+                        and <span id="auto">autonomously navigate</span> the desert, going to each specified point, whether it is given by a GNSS coordinate, an Aruco Tag posted on
+                        the field, or items on the ground. 
+                    </p>
+                </details>
+
+                <figure>
+                    <img src="/images/yonder.jpg" alt="Image of the 2022-23 Yonder Rover, Lethargy">
+                    <figcaption>Figure 1: Image of the 2022-23 Yonder Rover, Lethargy</figcaption>
+                </figure>
+
+                <video controls>
+                    <source src="/images/IMG_2047.MOV">
+                    Your browser does not support the video tag
+                </video>
+
+                <p>
+                    As a software team member, one of our main priorities is the autonomous navigation task. I designed and
+                    implemented a state machine that structurally decided on what the rover should do at a given time based on an input/event. This state machine
+                    connected our computer vision algorithm of finding Aruco tags or objects as well as our GNSS information, including long/lat coordinates and orientation, 
+                    taken from a compass through the use of <code>ROS sub/pub messaging</code>. Based on these info, as well as using time to implement a failsafe, the state machine
+                    would seamlessly transition to a new state considering all cases.
+                </p>
+                </section>
+
+                <section>
+                <h3 id="ihs">IHS Robotics</h3>
+                <p>
+                    During my high school years, from freshmen to until COVID-19 hit, I was in a team that participated in KIPR Botball, in which teams across the world would
+                    compete to build and program robots to perform various tasks on a gameboard given a certain time limit. There were various tasks on the board, so we would
+                    have to design an optimal game plan that would score as many points in the time we were given. 
+                </p>
+
+                <aside>
+                    They allowed for two robots for each team powered by their own custom KIPR brain and library using C.
+                    We also attached one brain to a Roomba to program it to perform actions stronger than our custom-built smaller bot.
+                </aside>
+                    
+                <p>
+                    During my second year on the team, we placed 1st on the Sojourner bracket of the international competition, GCER, 
+                </p>
+
+                <picture>
+                    <source type="image/webp" srcset="/images/botball.webp">
+                    <source type="image/png" srcset="/images/botball.png">
+                    <img src="/images/botball.jpg" alt="A Picture of the Botball competition">
+                </picture>
+
+                <p>
+                    In my second year, I became the <i>software lead</i>...
+                </p>
+                </section>
+
+                <h2 id="extra_credit">Extra Credit Section</h2>
+                <math>
+                    <mrow>
+                        <msup>
+                            <mi>E</mi>
+                        </msup>
+                        <mo>=</mo>
+                        <msup>
+                            <mi>mc</mi>
+                            <mn>2</mn>
+                        </msup>
+                    </mrow>
+                </math>
+                <p>
+                    MathML was not used as it was not widely supported until 2023, where most of the popular browsers: chrome and edge 
+                    started being able to use it. Even when it was supported in 2016 by safari or 2011 by firefox, their usage was only 2.5-5%.
+                    Chrome, however, had a global usage of 25% at the time. Therefore, to consider the different types of browsers that users use,
+                    developers would not be able to utilize it if they wanted to reach a broad audience.
+                </p>
+        </main>
+        
+        <footer>
+            <h2 id="contact">Contact Information</h2>
+            <form action="https://httpbin.org/get" method="get">
+
+                <fieldset>
+                    <legend>Send a Message!</legend>
+                    <label for="user_name">Your Name</label>
+                    <input type="text" id="user_name" name="user_name">
+                    <br>
+                    <label for="user_email">Your Email</label>
+                    <input type="email" id="user_email" name="user_email">
+                    <br>
+                    <label for="user_message">Your Message</label>
+                    <textarea id="user_message" name="user_message"></textarea>
+                    <br>
+                </fieldset>
+
+                <fieldset>
+                    <input type="submit" value="Send">
+                </fieldset>
+
+            </form>
+        </footer>
+    </body>
+
+</html>
